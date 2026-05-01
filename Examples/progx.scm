@@ -1,0 +1,12 @@
+((load =20)
+ (store 15)
+ (load =2)
+ (store 20)
+ (load *15)
+ (write 0)
+ (load =999)
+ (store *15)
+ (load 20)
+ (write 0)
+ (halt)))
+
