@@ -1,7 +1,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; title: using an array in a ram program
-;; author: osami yamamoto
-;; date: fri apr 10 12:19:18 jst 2009
+;; Title: Using an array in a RAM program
+;; Author: Osami Yamamoto
+;; Date: Fri Apr 10 12:19:18 JST 2009
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (
 	(load =10)

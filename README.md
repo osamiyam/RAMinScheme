@@ -25,9 +25,9 @@ Racketのバージョンは8.15です。
 のようにして実行します。RAMのプログラムは、
 ```
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; title: using an array in a ram program
-;; author: osami yamamoto
-;; date: fri apr 10 12:19:18 jst 2009
+;; Title: Using an array in a RAM program
+;; Author: Osami Yamamoto
+;; Date: Fri Apr 10 12:19:18 JST 2009
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (
 	(load =10)
@@ -46,5 +46,6 @@ skip:
 	(halt)
 )	
 ```
-のようにスキームの一つのS式として記述します。現在のところSJ命令には
-対応していません。
+のようにスキームの一つのS式として記述します。SJ命令もおそらく問題なく
+使えると思います。
+
