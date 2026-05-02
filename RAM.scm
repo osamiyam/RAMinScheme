@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Title: RAM Emulator in Scheme
 ;; Author: Osami Yamamoto
-;; Date: Thu Apr 30 14:24:29 JST 2026
+;; Date: Sat May  2 09:38:38 JST 2026
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define mem-size 10000)
@@ -10,6 +10,7 @@
 (define execution-counter 0)
 
 (define (execute prog)
+  (set! execution-counter 0)
   (execute0 prog prog)
   (display "Number of steps = ")
   (display execution-counter)
@@ -19,7 +20,6 @@
   (if (null? cur) '()
       (begin
         (let ((next (exec1 cur prog)))
-          (set! execution-counter (+ execution-counter 1)) 
           (execute0 prog next)))))
 
 (define (label->string label)
@@ -62,6 +62,7 @@
     (if (symbol? line) nextgo
         (let ((op (car line))
               (operand (cdr line)))
+          (set! execution-counter (+ execution-counter 1))
           (cond ((eq? op 'load)
                  (let ((mem (car operand)))
                    (vector-set! memory 0 (ref-value mem))
@@ -122,6 +123,15 @@
                  (display "HALT:")
                  (newline)
                  '())
+		((eq? op 'sj)
+                 (let ((mem1 (car operand))
+		       (mem2 (cadr operand))
+		       (label (caddr operand)))
+                   (vector-set! memory (ref-addr mem1)
+				(- (ref-value mem1) (ref-value mem2)))
+		   (if (zero? (ref-value mem1))
+		       (find-label prog label)
+		       nextgo)))
                 (else
                  (display "error")
                  (newline)))))))
